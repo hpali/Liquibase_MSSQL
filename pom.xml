@@ -106,6 +106,23 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.3.2</version>
+                <configuration>
+                    <username>niki</username>
+                    <password>12345</password>
+                    <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                    <url>jdbc:sqlserver://localhost:1433;databaseName=devtest</url>
+                    <changeLogFile>src/main/resources/db/changelog/master-changelog.xml</changeLogFile>
+                    <outputChangeLogFile>src/main/resources/db/changelog/init-changelog.xml</outputChangeLogFile>
+                    <diffTypes>catalogs,tables,functions,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints,data,storedprocedures,triggers,sequences,databasepackage,databasepackagebody
+                    </diffTypes>
+                    <changeSetAuthor>hp</changeSetAuthor>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
