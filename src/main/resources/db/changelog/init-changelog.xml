@@ -1,0 +1,48 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="hp" id="1653053694268-1">
+        <createTable tableName="flight">
+            <preConditions onFail="MARK_RAN">
+                <not>
+                    <tableExists tableName="flight"/>
+                </not>
+            </preConditions>
+            <column computed="false" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__flight__3213E83F20A23518"/>
+            </column>
+            <column computed="false" name="flight_number" type="varchar(255)"/>
+            <column computed="false" name="takeoff_time" type="datetime2"/>
+            <column computed="false" name="landing_id" type="bigint"/>
+            <column computed="false" name="takeoff_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="hp" id="1653053694268-2">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="airport"/>
+            </not>
+        </preConditions>
+        <createTable tableName="airport">
+            <column computed="false" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__airport__3213E83F45288861"/>
+            </column>
+            <column computed="false" name="iata" type="varchar(255)"/>
+            <column computed="false" name="name" type="varchar(20)"/>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="landing_id" baseTableName="flight"
+                                 constraintName="FKlo8um1qhyvn4ec5tt90u49g9g" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="airport" validate="true"/>
+        <addForeignKeyConstraint baseColumnNames="takeoff_id" baseTableName="flight"
+                                 constraintName="FKnvldg0a2nu9ivpbmebljf4g1i" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="airport" validate="true"/>
+        <createSequence cycle="false" incrementBy="1" maxValue="9223372036854775807" minValue="-9223372036854775808"
+                        sequenceName="hibernate_sequence" startValue="1"/>
+
+    </changeSet>
+
+</databaseChangeLog>
