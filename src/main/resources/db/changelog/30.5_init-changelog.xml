@@ -1,0 +1,156 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <changeSet author="hp" id="1653748999068-1">
+        <createTable tableName="Evatest">
+            <column computed="false" name="id" type="int"/>
+            <column computed="false" name="name" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="hp" id="1653748999068-2">
+        <createTable tableName="PreislisteZielsystem">
+            <column autoIncrement="true" computed="false" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PreislisteZielsystem"/>
+            </column>
+            <column computed="false" name="LieferantShort" type="nvarchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="ZielsystemShort" type="nvarchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="RowKey" type="nvarchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="ProduktKey" type="nvarchar(512)"/>
+            <column computed="false" name="ProductTitle" type="nvarchar(MAX)"/>
+            <column computed="false" name="ProductId" type="nvarchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="SkuId" type="nvarchar(MAX)"/>
+            <column computed="false" name="SkuTitle" type="nvarchar(MAX)"/>
+            <column computed="false" name="Publisher" type="nvarchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="SkuDescription" type="nvarchar(MAX)"/>
+            <column computed="false" name="UnitOfMeasure" type="nvarchar(MAX)"/>
+            <column computed="false" name="TermDuration" type="nvarchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="BillingPlan" type="nvarchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="Market" type="nvarchar(MAX)"/>
+            <column computed="false" name="Currency" type="nvarchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="UnitPrice" type="decimal(18, 5)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="PricingTierRangeMin" type="nvarchar(MAX)"/>
+            <column computed="false" name="PricingTierRangeMax" type="nvarchar(MAX)"/>
+            <column computed="false" name="EffectiveStartDate" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="EffectiveEndDate" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="Tags" type="nvarchar(MAX)"/>
+            <column computed="false" name="ERP_Price" type="decimal(18, 5)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="Segment" type="nvarchar(MAX)"/>
+            <column computed="false" name="FlagFreigabe1" type="bit"/>
+            <column computed="false" name="FlagFreigabe2" type="bit"/>
+            <column computed="false" name="FlagChanged" type="bit"/>
+            <column computed="false" name="FlagExportedZs" type="bit"/>
+            <column computed="false" name="LastImportidFrei" type="int"/>
+            <column computed="false" name="LastImportidExp" type="int"/>
+            <column computed="false" name="updateDate" type="datetime"/>
+            <column computed="false" name="updateUser" type="nvarchar(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="hp" id="1653748999068-3">
+        <createView fullDefinition="false" viewName="PreislisteZielsystem_v">SELECT *, 
+SkuTitle as ProduktName, 
+rowkey+'_'+ProductTitle+'_'+SkuTitle+'_'+SkuDescription as SearchName
+
+FROM dbo.[PreislisteZielsystem]</createView>
+    </changeSet>
+    <changeSet author="hp" id="1653748999068-4">
+        <createSequence cycle="false" incrementBy="1" maxValue="9223372036854775807" minValue="-9223372036854775808" sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="hp" id="1653750785502-1">
+        <createTable tableName="Evatest">
+            <column computed="false" name="ID" type="int"/>
+            <column computed="false" name="Name" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="hp" id="1653750785502-2">
+        <createTable tableName="PreislisteZielsystem">
+            <column autoIncrement="true" computed="false" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PreislisteZielsystem"/>
+            </column>
+            <column computed="false" name="LieferantShort" type="nvarchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="ZielsystemShort" type="nvarchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="RowKey" type="nvarchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="ProduktKey" type="nvarchar(512)"/>
+            <column computed="false" name="ProductTitle" type="nvarchar(MAX)"/>
+            <column computed="false" name="ProductId" type="nvarchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="SkuId" type="nvarchar(MAX)"/>
+            <column computed="false" name="SkuTitle" type="nvarchar(MAX)"/>
+            <column computed="false" name="Publisher" type="nvarchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="SkuDescription" type="nvarchar(MAX)"/>
+            <column computed="false" name="UnitOfMeasure" type="nvarchar(MAX)"/>
+            <column computed="false" name="TermDuration" type="nvarchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="BillingPlan" type="nvarchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="Market" type="nvarchar(MAX)"/>
+            <column computed="false" name="Currency" type="nvarchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="UnitPrice" type="decimal(18, 5)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="PricingTierRangeMin" type="nvarchar(MAX)"/>
+            <column computed="false" name="PricingTierRangeMax" type="nvarchar(MAX)"/>
+            <column computed="false" name="EffectiveStartDate" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="EffectiveEndDate" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="Tags" type="nvarchar(MAX)"/>
+            <column computed="false" name="ERP_Price" type="decimal(18, 5)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="Segment" type="nvarchar(MAX)"/>
+            <column computed="false" name="FlagFreigabe1" type="bit"/>
+            <column computed="false" name="FlagFreigabe2" type="bit"/>
+            <column computed="false" name="FlagChanged" type="bit"/>
+            <column computed="false" name="FlagExportedZs" type="bit"/>
+            <column computed="false" name="FlagNotificationSent1" type="bit"/>
+            <column computed="false" name="FlagNotificationSent2" type="bit"/>
+            <column computed="false" name="updateDate" type="datetime"/>
+            <column computed="false" name="updateUser" type="nvarchar(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="hp" id="1653750785502-3">
+        <createIndex indexName="PZ_Rowkey_UQ1" tableName="PreislisteZielsystem" unique="true">
+            <column name="RowKey"/>
+            <column name="LieferantShort"/>
+            <column name="ZielsystemShort"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

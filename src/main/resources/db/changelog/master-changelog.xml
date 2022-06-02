@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
-
+                      <include file="init-changelog.xml" relativeToChangelogFile="true" />
+<!-- 	<include file="1_init-changelog.xml" relativeToChangelogFile="true" />
+	<include file="2_add_komment_to_Evatest-changelog.xml" relativeToChangelogFile="true" />
+	<include file="3_create_PreislisteZielsystem_view.xml" relativeToChangelogFile="true" />
+	<include file="4_create_address_table-changelog.xml" relativeToChangelogFile="true" />
+	<include file="5_insert_address-changelog.xml" relativeToChangelogFile="true" />
+	<include file="6_neue_definition-changelog.xml" relativeToChangelogFile="true" />
+	<include file="7_insert_PreislisteZielsystem-changelog.xml" relativeToChangelogFile="true" />
+	<include file="8_create_function_percentChang-changelog.xml" relativeToChangelogFile="true" /> -->
+	
+	
 </databaseChangeLog>

@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+	<changeSet author="hp" id="id_insert_PreislisteZielsystem">
+
+		<insert tableName="PreislisteZielsystem">
+			<column name="LieferantShort" value="MSFT" />
+			<column name="ZielsystemShort" value="APD" />
+			<column name="RowKey" value="CFQ7TTC0HDK0:0001:P1M:Monthly" />
+			<column name="ProduktKey" value="CFQ7TTC0HDK0:0001" />
+			<column name="ProductTitle" value="Advanced Communications" />
+			<column name="ProductId" value="CFQ7TTC0HDK0" />
+			<column name="SkuId" value="0001" />
+			<column name="SkuTitle" value="Advanced Communications" />
+			<column name="Publisher" value="Microsoft Corporation" />
+			<column name="SkuDescription"
+				value="Advanced meetings, calling, workflow integration, and management tools for IT." />
+			<column name="UnitOfMeasure" />
+			<column name="TermDuration" value="P1M" />
+			<column name="BillingPlan" value="Monthly" />
+			<column name="Market" value="DE" />
+			<column name="Currency" value="EUR" />
+			<column name="UnitPrice" valueNumeric="970000.00000" />
+			<column name="PricingTierRangeMin" />
+			<column name="PricingTierRangeMax" />
+			<column name="EffectiveStartDate"
+				valueDate="2022-03-01T00:00:00" />
+			<column name="EffectiveEndDate"
+				valueDate="9999-11-30T23:59:59" />
+			<column name="Tags" value="License" />
+			<column name="ERP_Price" valueNumeric="1333200.00000" />
+			<column name="Segment" value="Commercial" />
+			<column name="FlagFreigabe1" valueBoolean="false" />
+			<column name="FlagFreigabe2" valueBoolean="false" />
+			<column name="FlagChanged" valueBoolean="false" />
+			<column name="FlagExportedZs" valueBoolean="false" />
+			<column name="LastImportidFrei" valueNumeric="1" />
+			<column name="LastImportidExp"  valueNumeric="2" />
+			<column name="updateDate" valueDate="2022-05-16T11:07:22.063" />
+			<column name="updateUser" value="carniele" />
+		</insert>
+	</changeSet>
+	
+
+
+</databaseChangeLog>
