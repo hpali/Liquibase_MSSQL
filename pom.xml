@@ -128,6 +128,30 @@
                     <changeSetAuthor>hp</changeSetAuthor>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <id>mssql-dump-create</id>
+                        <phase>clean</phase> <!-- azt határozza meg mikor fusson le -->
+                        <goals>
+                            <goal>exec</goal>  <!-- azt határozza meg , hogy mit -->
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>C:\Program Files\Microsoft SQL Server\150\Tools\Binn\osql.exe</executable>
+                    <arguments>
+                        <argument>-E</argument>
+                        <argument>-Q</argument>
+                        <argument>BACKUP DATABASE DEVTEST_Flyway TO DISK='C:\temp\Devtest_Flyway.bak' WITH FORMAT</argument>
+                    </arguments>
+
+
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
